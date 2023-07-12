@@ -1,0 +1,9 @@
+body {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    background-image: url(https://cdn.wallpapersafari.com/53/22/68QdVc.png);
+    background-size: cover;
+    height: 100vh;
+}
