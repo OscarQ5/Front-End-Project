@@ -8,10 +8,18 @@
     width: 250px;
     height: 300px;
     border: 10px solid #8B4513;
-    margin: 0 auto;
+    margin-left: 750px;
 }
 
 #burger-container p {
     text-align: center;
     font-size: larger;
+}
+
+body {
+    background-image: url(https://images5.alphacoders.com/126/1260805.jpg);
+    background-size: cover;
+
+    height: 100vh;
+    min-height: 100vh;
 }
