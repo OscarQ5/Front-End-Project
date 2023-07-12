@@ -19,6 +19,20 @@
 body {
     background-image: url(https://images5.alphacoders.com/126/1260805.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
     height: 100vh;
-    min-height: 100vh;
+}
+
+#belchers-container {
+    padding-top: 220px;
+}
+
+#form-container {
+    padding-left: 750px;
+}
+
+header {
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
