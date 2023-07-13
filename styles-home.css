@@ -8,7 +8,9 @@
     width: 250px;
     height: 300px;
     border: 10px solid #8B4513;
-    margin-left: 750px;
+    margin-top: 20px;
+    margin-right: 20px;
+    float: right;
 }
 
 #burger-container p {
@@ -24,7 +26,11 @@ body {
 }
 
 #belchers-container {
-    padding-top: 220px;
+    padding-top: 700px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    justify-content: center;
+    text-align: center;
 }
 
 #form-container {
@@ -36,3 +42,31 @@ header {
     display: flex;
     justify-content: center;
 }
+
+#belchers-container .belcher {
+    margin: 10px;
+    position: relative;
+}
+
+#belchers-container .belcher .tooltip {
+    display: none;
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#belchers-container .belcher:hover .tooltip {
+    display: block;
+}
+
+#belchers-container .belcher:hover img {
+    opacity: 0.8;
+    filter: grayscale(100%);
+  }
+  
