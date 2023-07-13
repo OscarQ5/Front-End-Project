@@ -98,6 +98,18 @@ burgerForm.addEventListener("submit", function (event) {
   const burgerName = burgerNameInput.value;
   const burgerPrice = burgerPriceInput.value;
 
+  const errorMessages = burgerForm.querySelectorAll(".error-message");
+  errorMessages.forEach((errorMessage) => {
+    errorMessage.remove();
+  })
+  if (burgerName.trim() === "" || burgerPrice.trim() === "") {
+    const errorContainer = document.createElement("p");
+    errorContainer.textContent = "Please fill in all fields."
+    errorContainer.classList.add("error-message");
+    burgerForm.appendChild(errorContainer)
+    return false;
+  }
+
   const burgerNameElement = document.createElement("h2");
   burgerNameElement.textContent = burgerName;
 
