@@ -106,6 +106,13 @@ burgerForm.addEventListener("submit", function (event) {
     const errorContainer = document.createElement("p");
     errorContainer.textContent = "Please fill in all fields."
     errorContainer.classList.add("error-message");
+    const closeButton = document.createElement("button");
+    closeButton.textContent = "X";
+    closeButton.addEventListener("click", function () {
+    errorContainer.remove();
+  });
+
+  errorContainer.appendChild(closeButton);
     burgerForm.appendChild(errorContainer)
     return false;
   }
