@@ -86,3 +86,74 @@ fetchAndAppendCharacter(275);
 fetchAndAppendCharacter(467);
 fetchAndAppendCharacter(167);
 fetchAndAppendCharacter(280);
+
+const burgerForm = document.getElementById("burger-form");
+
+burgerForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const burgerNameInput = document.getElementById("burger-name");
+  const burgerPriceInput = document.getElementById("burger-price");
+
+  const burgerName = burgerNameInput.value;
+  const burgerPrice = burgerPriceInput.value;
+
+  const burgerNameElement = document.createElement("h2");
+  burgerNameElement.textContent = burgerName;
+
+  const burgerChalk = document.createElement("p");
+  burgerChalk.textContent = "BURGER";
+  burgerChalk.style.textDecoration = "underline";
+
+  const ofTheDayChalk = document.createElement("p");
+  ofTheDayChalk.textContent = "Of The Day";
+
+  const burgerPriceElement = document.createElement("p");
+  burgerPriceElement.textContent = "$" + burgerPrice;
+
+  burgerContainer.innerHTML = "";
+
+  burgerContainer.appendChild(burgerChalk);
+  burgerContainer.appendChild(ofTheDayChalk);
+  burgerContainer.appendChild(burgerNameElement);
+  burgerContainer.appendChild(burgerPriceElement);
+
+  burgerForm.reset();
+});
+
+const newBurgerBtn = document.getElementById("new-burger");
+
+function fetchRandomBurgerOfTheDay() {
+  const randomId = Math.floor(Math.random() * 333) + 1; 
+  const apiUrl = `https://bobsburgers-api.herokuapp.com/v2/burgerOfTheDay/${randomId}`;
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(burger => {
+      const burgerNameElement = document.createElement("h2");
+      burgerNameElement.textContent = burger.name;
+
+      const burgerChalk = document.createElement("p");
+      burgerChalk.textContent = "BURGER";
+      burgerChalk.style.textDecoration = "underline";
+
+      const ofTheDayChalk = document.createElement("p");
+      ofTheDayChalk.textContent = "Of The Day";
+
+      const burgerPriceElement = document.createElement("p");
+      burgerPriceElement.textContent = burger.price;
+
+      burgerContainer.innerHTML = ""; 
+
+      burgerContainer.appendChild(burgerChalk);
+      burgerContainer.appendChild(ofTheDayChalk);
+      burgerContainer.appendChild(burgerNameElement);
+      burgerContainer.appendChild(burgerPriceElement);
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      burgerContainer.textContent = "Failed to fetch a new Burger of the Day. Please try again later.";
+    });
+}
+
+newBurgerBtn.addEventListener("click", fetchRandomBurgerOfTheDay);
